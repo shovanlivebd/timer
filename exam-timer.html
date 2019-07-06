@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Exam timer</title>
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<link href="css/jquery.countdown.css" rel="stylesheet">
+<style>
+#instructions {
+	font-size: 1.2rem;
+	font-weight: 700;
+	text-align: center;
+	text-transform: uppercase;
+}
+#instructions img {
+	margin-bottom: 1rem;
+	width: 50%;
+	height: auto;
+}
+#timer {
+	text-align: center;
+}
+#timer-inner {
+	font-size: 8rem;
+}
+#credits {
+	margin-top: 3rem;
+	font-size: 0.75rem;
+	text-align: center;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="d-flex flex-column justify-content-center" style="height:100vh">
+	<div>
+		<div id="instructions" class="container">
+			<div class="row">
+				<div class="col-4">
+					<img src="img/id-card.png">
+					<p>Wear ID card</p>
+				</div>
+				<div class="col-4">
+					<img src="img/no-mobile.png">
+					<p>No cellphone allowed</p>
+				</div>
+				<div class="col-4">
+					<img src="img/no-exit.png">
+					<p>No exit before exam ends</p>
+				</div>
+			</div>
+		</div>
+		<div id="timer">
+			<div id="timer-inner" class="d-flex justify-content-center" style="text-align:center" data-minutes-left="105">01:45:00</div>
+			<button type="button" id="start-timer" class="btn btn-primary btn-lg">Start timer</button>
+		</div>
+	</div>
+	<div id="credits">Icons made by <a href="https://www.flaticon.com/authors/smashicons" title="Smashicons">Smashicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="js/jquery.simple.timer.js"></script>
+<script>
+$(document).ready(function() {
+	$('#start-timer').click(function(e) {
+		$('#timer-inner').html('');
+		$('#timer-inner').startTimer({
+			onComplete: function(element) {
+				$(element).html('Stop writing!!!');
+			}
+		});
+		$(this).prop('disabled', true);
+	});
+});
+</script>
+
+</body>
+
+</html>
